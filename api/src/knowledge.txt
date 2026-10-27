@@ -1,0 +1,173 @@
+Who is Mahantesh Hiremath?
+Mahantesh Hiremath
+Lead AI Engineer at 3M · M.Tech AI student at IIT Jodhpur Now on iPad!
+I wrote my first ETL jobs in 2012 on a laptop with 4 GB of RAM. Twelve years of data later, in 2024, I sat down as a student again. This page lets you rewind through every machine, website and model I met on the way.
+See my projects
+System 2026
+Running
+Me, that year AI Lead, 3M · final year of M.Tech AI, IIT Jodhpur
+Typical machine 32 GB laptop · models as a service (Amazon Bedrock)
+Silicon 2 nm gate-all-around · 336 billion transistors on the biggest chip
+AI that year Agents that retrieve, reason and act
+The machine could Models stopped being the hard part. Retrieval, evaluation and trust became the job.
+I built RAG and agents over 8,000+ documents for 40,000+ users, an internal GPT for 60K+ people, and a Talent Navigator that shortlists 200+ resumes in under a minute.
+Ask the model of 2026 : "Shortlist the best 5 candidates from these 200 resumes."
+Read 200 of 200 resumes through retrieval. Top 5 ranked, with evidence quoted from each file. Shortlist ready to sync to Workday, in under a minute.
+Agent, 2026. This is how the Talent Navigator I built works.
+This site has been rebuilt six times. Pick a year to boot it on that year's machine.
+About: a student again, after 13 years
+I'm a data guy. For almost fourteen years I moved data from where it was to where it was useful: SAP dashboards on the first retina iPads, central-bank data warehouses in Kuala Lumpur, Oracle-to-HANA migrations, Snowflake pipelines that saved real money.
+For about three years I've lived in the AI world, playing with every model as it arrived. Two years before that, models weren't even that smart. I wanted to know how these things are actually built, so in 2024 I did something I hadn't done in thirteen years: I went back to the beginning. Some concepts I revisited from basics; many I learned from scratch.
+In January 2025 I joined the M.Tech in Artificial Intelligence at IIT Jodhpur, and I finish in December 2026. I study between family time and a full-time job leading AI engineering at 3M. I've watched every generation of model grow up, from autocomplete to agents, and I've learned each step the way a student does.
+Key facts
+Based in | Bengaluru, India
+In data since | Oct 2012 · 14 yrs
+Now | AI Lead, 3M Global Technology Centre
+Studying | M.Tech AI, IIT Jodhpur Jan 2025 – Dec 2026
+Also | Perplexity AI Business Fellowship, first cohort (2025)
+Speaks | Kannada, Hindi, English, Marathi, Telugu
+Coursework: what the M.Tech installed
+Two years of Friday nights and weekends, between family and a full-time job. These are the modules every student takes. The highlighted ones sit closest to the agents and RAG systems I build at 3M.
+IIT Jodhpur · Jan 2025 – Dec 2026
+Term | Module | Credits | What it covers
+Year 1 · PG Diploma · 2025 Complete
+T1 | Machine Learning | 3 | Supervised and unsupervised learning, model evaluation
+T1 | Artificial Intelligence | 3 | Search, planning, knowledge and reasoning
+T1 | Optimization | 2 | Gradient methods and convex optimisation, the maths under training
+T1 | Advanced Data Structures & Algorithms | 2 | Algorithm design and complexity
+T2 | Deep Learning | 3 | Neural networks, CNNs, sequence models and attention
+T2 | ML-Ops | 1 | Pipelines, tracking and deployment for ML models
+T2 | DL-Ops | 1 | Training and serving deep-learning models at scale
+T2 | Program elective 1 | 3 | Chosen from the elective list
+T2 | Intellectual Property | 1 | Patents, copyright and licences in technology
+T2 | Technical Communication | 1 | Writing and presenting technical work
+T3 | Advanced AI / Autonomous Systems | 3 | Agents that perceive, plan and act
+T3 | Program electives 2–3 | 6 | Chosen from the elective list
+T3 | Ethics and Professional Life | 1 | Responsible AI and professional practice
+Year 2 · M.Tech · 2026 In progress
+Y2 | M.Tech project, stages 1–3 | 16 | A research project that runs through the whole final year
+Y2 | Program electives 4–6 | 9 | Chosen from the elective list
+Y2 | Open electives 1–2 | 6 | Chosen from courses across departments
+Y2 | Systems Engineering & Project Management | 1 | Planning and running technical projects end to end
+Superpowers
+Measured under real conditions, not a skills bar.
+Superpower | Measured | Conditions
+Retrieval at enterprise scale | 8,000+ docs · 40K users | RAG and agentic AI on Amazon Bedrock, OpenSearch and Azure AI Search at 3M
+Agents that finish the job | 200+ resumes · < 1 min | Talent Navigator with Workday integration for the recruitment team
+Cost compression | $1M / yr · −50% EC2 | Proposed and implemented SAP HANA NSE; Annual 1% TCC Award
+Cloud bill hygiene | $10K+ / month | Snowflake automation, stage and table clean-up, transient tables
+Real-time plumbing | streaming | Amazon Data Firehose and AWS Lambda feeding Snowflake
+Building teams | 30+ engineers · 200+ interviews | Lead Data Engineer, 3M, 2021–2025
+Pin configuration: the stack I wire together
+1 Python
+2 SQL
+3 Amazon Bedrock
+4 OpenSearch
+5 AWS Lambda
+6 Amazon S3
+7 Data Firehose
+8 AWS AgentCore
+MH- 2026
+AI · DATA · CLOUD
+16 Snowflake
+15 Databricks · PySpark
+14 Apache Iceberg
+13 LangChain · LlamaIndex
+12 MCP · AutoGen
+11 Azure AI Foundry
+10 Docker · CI/CD
+9 Streamlit
+Projects & achievements
+Talent Navigator
+3M · 2025–26 · AI agent
+An AI agent for the recruitment team, integrated with Workday. HR uploads 200+ resumes at a time and gets a reasoned shortlist in under a minute.
+Agents
+RAG
+Workday API
+Enterprise RAG & agents
+3M · 2025–26 · 60K+ users
+Retrieval over 8,000+ documents for 40,000+ users, an internal ChatGPT-equivalent, and agents for Legal, IT Support, DevOps, Image Generation, Canvas and Data Analysis.
+Amazon Bedrock
+OpenSearch
+Azure AI Foundry
+Agentic RAG on arXiv papers
+2025 · Snowflake Intelligence
+An agent that searches, reads and answers across arXiv research papers, built on Snowflake Intelligence.
+Snowflake
+Agentic RAG
+See the post
+Bazaar AI Saathi
+Side project · featured by Perplexity
+An AI-powered analysis companion for the Indian stock market, showcased in Perplexity's developer documentation.
+Perplexity API
+Python
+Perplexity showcase
+$1M a year from one setting
+3M · Lead Data Engineer
+Proposed and implemented SAP HANA Native Storage Extension in non-production, halving EC2 usage. Recognised with the Annual 1% TCC Award.
+SAP HANA
+Amazon EC2
+Data observability, in Streamlit
+3M · internal tool
+An internal observability tool for pipeline health, alongside an Apache Iceberg lakehouse built for cheap, visible, available data.
+Streamlit
+Iceberg
+Snowflake
+See the post
+A central bank's data warehouse
+IBM Malaysia · 2017–20
+Architected a $5M+ banking data warehouse for Bank Negara Malaysia, replacing the old system across 10+ subject areas; 35% faster critical jobs.
+SAP BODS
+Oracle
+Data modelling
+This portfolio, on AWS
+2026 · Amplify · Lambda · Bedrock
+Static HTML, CSS and JavaScript with no framework, on AWS Amplify Hosting. Only index.html and assets/ are published, so source notes never ship, and custom headers set a strict Content Security Policy, HSTS and cache rules. Six era skins, one boot sequence. In the 2024 edition the Ask box is real: a Lambda function URL asks Amazon Nova on Bedrock, which answers only from this page's text, with daily limits kept in DynamoDB.
+AWS Amplify
+AWS Lambda
+Amazon Bedrock
+DynamoDB
+Source on GitHub
+Recognition
+Hackathons | Snowflake Hackathon, 2nd prize and 2× top-5 finalist · Hive Challenge winner · Dremio hackathon runner-up
+At work | 3M Annual 1% TCC Award · 3M CREST, GOLD and SILVER awards · IBM Manager's Choice Award (2019) · 10/10 IBM client rating · TCS On-the-Spot awards
+Certifications | 40+, including AWS Cloud Practitioner, SnowPro, SAP HANA 2.0, Azure AZ-900 and DP-900 · full portfolio · Snowflake wallet
+Journey: revision history
+Every datasheet keeps one. Boot any revision to see the machine I was working on.
+Rev | Date | Where | Change | Rewind
+1.0 | Oct 2012 | TCS, Mumbai | System Engineer. SAP BusinessObjects, Crystal reports, 6 iPad dashboards. |
+2.0 | Jun 2016 | IBM, Bengaluru → Kuala Lumpur | Senior Consultant. Led 50+ people; Bank Negara Malaysia warehouse; Manager's Choice Award. |
+3.0 | Mar 2020 | EY, Bengaluru | Senior Consultant. 10+ year-old warehouse migrated to SAP HANA 2.0. |
+4.0 | Dec 2021 | 3M, Bengaluru | Lead Data Engineer. $1M/yr saved, streaming on AWS, a 30+ person team. |
+5.0 | 2024 | My desk, at night | Student again. Back to the beginning of AI, learning from scratch. |
+5.1 | Jan 2025 | IIT Jodhpur | M.Tech in Artificial Intelligence begins (completing Dec 2026). |
+6.0 | Jul 2025 | 3M, Bengaluru | AI Lead. Enterprise RAG and agents for 60K+ users. |
+Silicon: Moore's law under every rewind
+In 1965 Gordon Moore saw the number of components on a chip doubling every year; in 1975 he revised it to every two years. Every rewind moves this cursor to that year's silicon. Drag across the charts to visit any year since the Intel 4004.
+2026
+Biggest GPU 336 billion · Nvidia GR200 Rubin (2026)
+Biggest CPU 227 billion · NVIDIA Vera (2026)
+Process node 2 nm · Intel 18A · TSMC N2
+Densest CPU 183 million per mm²
+Top clock 3.2 GHz (data ends 2021)
+Doublings since 1971 27.2
+Gate-all-around Stacked nanosheets; the gate surrounds every side.
+Year
+Biggest GPU
+Biggest CPU
+Every CPU in the table
+Doubling every 2 years from the 4004
+My 14 years: the biggest chip went from 7.08 billion transistors (2012) to 336 billion (2026), about 47 times more. That is a doubling every 2.5 years, a little slower than Moore's two.
+MOSFET scaling: process names fell from 22 nm to 2 nm, though the names no longer measure anything physical. The real gains came from new transistor shapes: FinFET in 2012, gate-all-around in 2025.
+Clocks: top speed stopped climbing in the mid-2000s, when Dennard scaling ended. After that, more transistors meant more cores and bigger GPUs, the hardware my AI work runs on.
+Largest chip per year, not a typical laptop. Data: Wikipedia, "Transistor count" (CC BY-SA 4.0); clock speeds: Karl Rupp, Microprocessor Trend Data (CC BY 4.0).
+Get in touch
+I'm happy to talk about AI engineering, data platforms, or going back to school mid-career.
+Email mahanteshimath@gmail.com
+LinkedIn in/mahantesh-hiremath
+GitHub github.com/mahanteshimath
+YouTube ATOZABOUTDATA
+Contact: email mahanteshimath@gmail.com
+LinkedIn: https://www.linkedin.com/in/mahantesh-hiremath/
+GitHub: https://github.com/mahanteshimath
+This site's source: https://github.com/mahanteshimath/portfolio-on-aws

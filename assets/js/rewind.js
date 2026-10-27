@@ -145,7 +145,10 @@
     });
     const past = year !== NOW;
     banner.hidden = !past;
-    if (past) bannerText.textContent = `You are viewing the ${year} edition: this site as it might have looked on the web of ${year}.`;
+    if (past) {
+      bannerText.textContent = `You are viewing the ${year} edition: this site as it might have looked on the web of ${year}.`
+        + (year === 2024 ? " The Ask box below is live." : "");
+    }
     document.title = past
       ? `Mahantesh Hiremath · ${year} edition`
       : "Mahantesh Hiremath · Lead AI Engineer, student again";
@@ -339,25 +342,82 @@
     if (ev.key === "Escape" && !boot.hidden) { ev.preventDefault(); skipped = run; if (skipBoot) skipBoot(); }
   });
 
-  // 2024 prompt bar: route a typed question to the section that answers it
+  // 2024 prompt bar: a live answer from Amazon Nova on Bedrock (api/), plus a
+  // link to the section that covers it. Falls back to plain routing offline.
   const ask = $("#ask2024");
   if (ask) {
+    const ASK_URL = "https://a75wmhclpiug5v5ihw6ppgubh40uajnt.lambda-url.us-east-1.on.aws/";
+    const input = $("input", ask);
+    const out = $("#askOut");
+    const text = $("#askText");
+    const src = $("#askSrc");
+    const go = $("#askGo");
     const routes = [
-      [/build|built|project|made|work/i, "#projects"],
-      [/good|skill|superpower|stack|know/i, "#superpowers"],
-      [/study|course|iit|m\.?tech|student|learn/i, "#coursework"],
-      [/reach|email|contact|hire|linkedin|talk/i, "#contact"],
-      [/journey|career|history|year/i, "#journey"]
+      [/build|built|project|made|work/i, "#projects", "Projects"],
+      [/good|skill|superpower|stack|know/i, "#superpowers", "Superpowers"],
+      [/study|course|iit|m\.?tech|student|learn/i, "#coursework", "Coursework"],
+      [/reach|email|contact|hire|linkedin|talk/i, "#contact", "Contact"],
+      [/journey|career|history|year/i, "#journey", "Journey"]
     ];
-    ask.addEventListener("submit", (ev) => {
-      ev.preventDefault();
-      const q = $("input", ask).value;
-      const hit = routes.find(([re]) => re.test(q));
-      const target = $(hit ? hit[1] : "#about") || $("#about");
+    const routeFor = (q) => routes.find(([re]) => re.test(q)) || [null, "#about", "About"];
+    const jump = (sel) => {
+      const target = $(sel) || $("#about");
       target.scrollIntoView({ block: "start" });
       const h = $("h2", target);
       if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
+    };
+    let asking = 0;
+
+    const show = (msg, note, route, waiting) => {
+      out.hidden = false;
+      text.textContent = msg;
+      text.classList.toggle("is-waiting", Boolean(waiting));
+      src.textContent = note;
+      go.hidden = !route;
+      if (route) { go.href = route[1]; go.textContent = `Go to ${route[2]} →`; }
+    };
+
+    const submit = async (q) => {
+      q = q.trim().slice(0, 300);
+      if (!q) { input.focus(); return; }
+      const id = ++asking;
+      const route = routeFor(q);
+      show("Thinking", "", null, true);
+      try {
+        const ctrl = new AbortController();
+        const timer = setTimeout(() => ctrl.abort(), 12000);
+        const res = await fetch(ASK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ q }),
+          signal: ctrl.signal
+        });
+        clearTimeout(timer);
+        if (id !== asking) return;
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.answer) {
+          show(data.answer, "Answered live by Amazon Nova on Bedrock, from this page only.", route);
+          return;
+        }
+        const busy = res.status === 429;
+        show(busy ? "The model has answered its share of questions for today, so here’s the section that covers it."
+                  : "The model isn’t reachable right now, so here’s the section that covers it.", "", route);
+      } catch (_) {
+        if (id !== asking) return;
+        show("The model isn’t reachable right now, so here’s the section that covers it.", "", route);
+      }
+    };
+
+    ask.addEventListener("submit", (ev) => { ev.preventDefault(); submit(input.value); });
+    $$(".prompt-chip", ask.parentElement).forEach((chip) => {
+      chip.addEventListener("click", (ev) => {
+        ev.preventDefault();
+        input.value = chip.textContent;
+        submit(chip.textContent);
+      });
     });
+    go.addEventListener("click", (ev) => { ev.preventDefault(); jump(go.getAttribute("href")); });
+    $("#askClose").addEventListener("click", () => { asking++; out.hidden = true; input.focus(); });
   }
 
   // start: honour ?y=2012 links, otherwise invite the first rewind

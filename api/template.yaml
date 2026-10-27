@@ -1,0 +1,94 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Ask about Mahantesh. Bedrock-backed Q&A for the portfolio's 2024 prompt bar.
+
+Parameters:
+  SiteOrigin:
+    Type: String
+    Default: https://main.d1931ionu4gntw.amplifyapp.com
+    Description: The only origin allowed to call the API from a browser (CORS)
+  ModelId:
+    Type: String
+    Default: us.amazon.nova-2-lite-v1:0
+    Description: Cross-region inference profile used for Converse
+  FoundationModel:
+    Type: String
+    Default: amazon.nova-2-lite-v1:0
+    Description: The model behind that profile (needed for IAM)
+  IpSalt:
+    Type: String
+    NoEcho: true
+    Description: Random salt so visitor IPs are stored only as one-way hashes
+
+Globals:
+  Function:
+    Runtime: python3.12
+    Architectures: [arm64]
+    MemorySize: 256
+    Timeout: 15
+
+Resources:
+  Limits:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+      TimeToLiveSpecification:
+        AttributeName: expires_at
+        Enabled: true
+
+  AskFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: app.handler
+      # Hard ceiling on parallel model calls, whatever the traffic
+      ReservedConcurrentExecutions: 5
+      Environment:
+        Variables:
+          MODEL_ID: !Ref ModelId
+          TABLE_NAME: !Ref Limits
+          IP_SALT: !Ref IpSalt
+          PER_IP_DAILY: "20"
+          GLOBAL_DAILY: "1500"
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref Limits
+        - Statement:
+            - Effect: Allow
+              Action: bedrock:InvokeModel
+              Resource:
+                - !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/${ModelId}
+                - !Sub arn:aws:bedrock:*::foundation-model/${FoundationModel}
+      FunctionUrlConfig:
+        AuthType: NONE
+        Cors:
+          AllowOrigins: [!Ref SiteOrigin]
+          AllowMethods: [POST]
+          AllowHeaders: [content-type]
+          MaxAge: 3600
+
+  # Public function URLs need lambda:InvokeFunction as well as InvokeFunctionUrl
+  AskFunctionInvokeViaUrl:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref AskFunction
+      Action: lambda:InvokeFunction
+      Principal: "*"
+      InvokedViaFunctionUrl: true
+
+  AskLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${AskFunction}
+      RetentionInDays: 14
+
+Outputs:
+  AskUrl:
+    Description: Function URL used by assets/js/rewind.js
+    Value: !GetAtt AskFunctionUrl.FunctionUrl

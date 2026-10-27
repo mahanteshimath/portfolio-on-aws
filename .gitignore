@@ -4,5 +4,8 @@ sources/
 .impeccable/live/
 .impeccable/review/
 *.log
+.aws-sam/
+samconfig.toml
+__pycache__/
 .DS_Store
 Thumbs.db

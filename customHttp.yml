@@ -8,7 +8,7 @@ customHeaders:
       - key: Referrer-Policy
         value: strict-origin-when-cross-origin
       - key: Content-Security-Policy
-        value: "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+        value: "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self' https://a75wmhclpiug5v5ihw6ppgubh40uajnt.lambda-url.us-east-1.on.aws; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
   - pattern: 'assets/fonts/*'
     headers:
       - key: Cache-Control

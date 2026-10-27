@@ -4,6 +4,8 @@ Personal portfolio of **Mahantesh Hiremath**, AI Lead at 3M and M.Tech AI studen
 
 **Live site:** https://main.d1931ionu4gntw.amplifyapp.com/ · try the 2012 edition: https://main.d1931ionu4gntw.amplifyapp.com/?y=2012
 
+![Rewinding the site from 2026 to 2012](docs/rewind.gif)
+
 The story it tells: 14 years in data (since Oct 2012), then a student again in AI. That path runs from SAP iPad dashboards to banking data warehouses, cloud cost savings, and on to enterprise RAG and agents for 60K+ users.
 
 ![The 2026 edition on desktop](docs/screenshots/desktop-2026.png)
@@ -30,7 +32,7 @@ Each stop pairs three things:
 Only the feature is slow on purpose. Normal navigation stays instant, and the boot can always be skipped.
 
 - **Skippable:** press **Esc** or the Skip button.
-- **Keyboard:** the dial is a radio group, so arrow keys and Home/End move between years.
+- **Keyboard:** the dial is a toolbar of toggle buttons. Arrow keys and Home/End move between years, and Enter boots one.
 - **Reduced motion:** `prefers-reduced-motion` is respected.
 - **Shareable:** `?y=2012` (or any era year) opens the site straight in that edition.
 - **Visible hint:** the hero says "Pick a year to boot it on that year's machine", and the dial pulses on a first visit.
@@ -60,21 +62,43 @@ All screenshots are captured from the live site.
 | **Journey** | Career told as a revision history, linked to the Rewind eras |
 | **Contact** | Email, LinkedIn, GitHub, YouTube/blog |
 
-The 2024 edition adds a chat-style prompt bar. It sends a typed question ("What has he built?") to the section that answers it.
+The 2024 edition adds a chat-style prompt bar, and it really answers. Ask "What has he built?" and Amazon Nova 2 Lite on Amazon Bedrock replies live, grounded only on this page's text, with a link to the section that covers it.
 
 ## AWS setup
 
 | Service | Role |
 |---------|------|
 | **AWS Amplify Hosting** | Serves the site over HTTPS on Amplify's managed CDN (app `d1931ionu4gntw`, branch `main`, region `us-east-1`) |
+| **AWS Lambda** (function URL) | The Ask API behind the 2024 prompt bar: [`api/src/app.py`](api/src/app.py) |
+| **Amazon Bedrock** | Amazon Nova 2 Lite answers questions about me, using only the portfolio text in [`api/src/knowledge.txt`](api/src/knowledge.txt) |
+| **Amazon DynamoDB** | Daily request caps per visitor and site-wide, with TTL clean-up |
+| **AWS CloudFormation / SAM** | [`api/template.yaml`](api/template.yaml) defines the whole API |
+| **Amazon CloudWatch Logs** | Token usage per request, kept 14 days |
 
-The creative feature runs entirely in the browser, with all its content written in advance. The site has no backend, makes no API calls and has no runtime network dependencies, so nothing can break during judging.
+Everything except the 2024 Ask box runs in the browser, with its content written in advance. If the Ask API is unreachable or over its daily limit, the box falls back to linking the section that answers the question, so the site never breaks.
+
+### The Ask API (`api/`)
+
+```
+browser ──POST {q}──▶ Lambda function URL ──▶ DynamoDB (atomic daily counters)
+                              │
+                              └──▶ Amazon Bedrock · Nova 2 Lite (system prompt = page text)
+```
+
+Guardrails for a public, unauthenticated endpoint:
+
+- **Who can call it:** CORS allows only the site's origin, and reserved concurrency is 5.
+- **Limits:** 300-character questions, 220-token answers, 20 questions per visitor per day and 1,500 per day site-wide.
+- **Privacy:** visitor IPs are stored only as salted SHA-256 hashes, and the counters expire after two days.
+- **Prompt injection:** the visitor's text is treated as a question, never as instructions. Off-topic requests are declined, and unknown facts get "I don't know from this site" plus my email.
+
+To redeploy after editing the page: `./api/deploy.ps1`. It regenerates `knowledge.txt` from `index.html`, then packages and deploys the stack. The first deploy needs `-Salt <random string>`.
 
 How it's deployed: the live site is a **manual deployment**. `index.html` and `assets/` are zipped and uploaded to the `main` branch. Amplify is not connected to this repo, so a push to GitHub does not redeploy the site; each release is uploaded by hand.
 
 - [`amplify.yml`](amplify.yml): build spec, used only if the app is connected to Git. There is no build step; it publishes `index.html` and `assets/**`.
 - [`customHttp.yml`](customHttp.yml): response headers, applied to the Amplify app as its custom headers.
-  - **Content-Security-Policy:** only the site's own files may load (`'self'`). No inline scripts or styles, no CDNs, `frame-ancestors 'none'`.
+  - **Content-Security-Policy:** only the site's own files may load (`'self'`), and the only outside connection allowed is the Ask API (`connect-src`). No inline scripts or styles, no CDNs, `frame-ancestors 'none'`.
   - **Other security headers:** HSTS, `X-Content-Type-Options: nosniff`, and `Referrer-Policy`.
   - **Caching:** fonts are cached as immutable; CSS and JS are sent `no-cache` so a deploy shows up straight away.
 
@@ -82,6 +106,7 @@ How it's deployed: the live site is a **manual deployment**. `index.html` and `a
 
 **Option A: manual deploy** (how the live site is deployed)
 
+Run `./deploy-site.ps1`. It zips `index.html` and `assets/`, applies `customHttp.yml` as the app's custom headers, uploads the zip through the Amplify deployment API and waits for the job. To do the same by hand:
 1. Zip `index.html` and the `assets/` folder, with both at the top level of the zip.
 2. In the Amplify console, choose **Create new app → Deploy without Git** and upload the zip.
 3. Under **Hosting → Custom headers**, paste the contents of `customHttp.yml`.
@@ -96,7 +121,8 @@ How it's deployed: the live site is a **manual deployment**. `index.html` and `a
 
 ## Tech stack
 
-- Plain HTML, CSS and JavaScript. No framework, no build step, no dependencies.
+- Plain HTML, CSS and JavaScript. No framework, no build step, no front-end dependencies.
+- The Ask API is Python 3.12 on AWS Lambda (arm64), using only `boto3`.
 - Self-hosted fonts in `assets/fonts/` (Archivo, JetBrains Mono, Poppins, Roboto, Lobster). Each era uses its own type, and none is loaded from Google Fonts.
 - Icons are an inline SVG sprite.
 
@@ -112,8 +138,16 @@ assets/
   fonts/                Self-hosted WOFF2 fonts
   favicon.svg
 docs/screenshots/       Desktop and mobile captures of each era, plus the boot screen (taken from the live site)
+docs/rewind.gif         A rewind from 2026 to 2012, recorded from the live site (also docs/rewind.mp4)
+api/
+  template.yaml         SAM template: Lambda function URL, DynamoDB table, IAM, log group
+  src/app.py            Ask handler: limits, then Bedrock Converse
+  src/knowledge.txt     Grounding text, generated from index.html
+  build-knowledge.mjs   Regenerates knowledge.txt
+  deploy.ps1            Package and deploy the stack
 amplify.yml             Amplify build spec
 customHttp.yml          Security and cache headers
+deploy-site.ps1         Publish the site to Amplify (manual deployment)
 PRODUCT.md              Product brief: audience, positioning, constraints
 ```
 

@@ -26,7 +26,7 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="era-banner" id="eraBanner" hidden>
-  <p><span id="eraBannerText">You are viewing the 2012 edition.</span> Hardware is typical for the year; model answers are illustrative.</p>
+  <p><span id="eraBannerText">You are viewing the 2012 edition.</span> Specs are typical; spec-panel answers are illustrative.</p>
   <button type="button" class="btn btn-small" data-goto-era="2026">Back to 2026</button>
 </div>
 
@@ -250,9 +250,9 @@
       </li>
       <li class="project panel">
         <h3>This portfolio, on AWS</h3>
-        <p class="project-meta mono">2026 · AWS Amplify Hosting</p>
-        <p>Static HTML, CSS and JavaScript with no framework. A push to GitHub triggers an AWS Amplify Hosting build that publishes only <span class="mono">index.html</span> and <span class="mono">assets/</span> to Amplify’s CDN, so source notes never ship. Custom headers set a self-only Content Security Policy, HSTS and cache rules. Six era skins, one boot sequence, zero runtime dependencies.</p>
-        <ul class="tags"><li>AWS Amplify</li><li>GitHub</li></ul>
+        <p class="project-meta mono">2026 · Amplify · Lambda · Bedrock</p>
+        <p>Static HTML, CSS and JavaScript with no framework, on AWS Amplify Hosting. Only <span class="mono">index.html</span> and <span class="mono">assets/</span> are published, so source notes never ship, and custom headers set a strict Content Security Policy, HSTS and cache rules. Six era skins, one boot sequence. In the 2024 edition the Ask box is real: a Lambda function URL asks Amazon Nova on Bedrock, which answers only from this page’s text, with daily limits kept in DynamoDB.</p>
+        <ul class="tags"><li>AWS Amplify</li><li>AWS Lambda</li><li>Amazon Bedrock</li><li>DynamoDB</li></ul>
         <a class="link" href="https://github.com/mahanteshimath/portfolio-on-aws" target="_blank" rel="noopener">Source on GitHub <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
       </li>
     </ol>
@@ -347,18 +347,24 @@
 </main>
 
 <footer class="foot">
-  <p>Hosted on AWS Amplify Hosting · plain HTML, CSS and JavaScript · <a href="https://github.com/mahanteshimath/portfolio-on-aws" target="_blank" rel="noopener">source on GitHub</a></p>
-  <p class="foot-note">Rewind notes: machine specs are typical for each year, not exact models. “Ask the model” answers are illustrative reconstructions of each era’s behaviour, not real outputs. Career facts are real. Chip data comes from Wikipedia’s “Transistor count” (CC BY-SA 4.0) and Karl Rupp’s Microprocessor Trend Data (CC BY 4.0).</p>
+  <p>Hosted on AWS Amplify Hosting · Ask box answered by Amazon Nova on Amazon Bedrock · plain HTML, CSS and JavaScript · <a href="https://github.com/mahanteshimath/portfolio-on-aws" target="_blank" rel="noopener">source on GitHub</a></p>
+  <p class="foot-note">Rewind notes: machine specs are typical for each year, not exact models. “Ask the model” answers are illustrative reconstructions of each era’s behaviour, not real outputs. The 2024 Ask box is live: an AI model answers from this page’s text and can still make mistakes. Career facts are real. Chip data comes from Wikipedia’s “Transistor count” (CC BY-SA 4.0) and Karl Rupp’s Microprocessor Trend Data (CC BY 4.0).</p>
 </footer>
 
 <nav class="era-only prompt-2024" data-only="2024" aria-label="Ask about Mahantesh">
+  <div class="prompt-answer" id="askOut" hidden>
+    <p class="prompt-text" id="askText" role="status" aria-live="polite"></p>
+    <p class="prompt-src"><span id="askSrc"></span> <a class="prompt-go" id="askGo" href="#about" hidden></a></p>
+    <button type="button" class="prompt-close" id="askClose" aria-label="Close answer">×</button>
+  </div>
   <form class="prompt-form" id="ask2024" role="search">
     <label class="vh" for="ask2024q">Ask about Mahantesh</label>
-    <input class="prompt-ph" id="ask2024q" type="text" placeholder="Ask about Mahantesh…" autocomplete="off" enterkeyhint="go">
+    <input class="prompt-ph" id="ask2024q" type="text" placeholder="Ask about Mahantesh…" autocomplete="off" enterkeyhint="send" maxlength="300">
+    <button type="submit" class="prompt-send" aria-label="Ask"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
   </form>
-  <a href="#projects">What has he built?</a>
-  <a href="#superpowers">What is he good at?</a>
-  <a href="#contact">How do I reach him?</a>
+  <a href="#projects" class="prompt-chip">What has he built?</a>
+  <a href="#superpowers" class="prompt-chip">What is he good at?</a>
+  <a href="#coursework" class="prompt-chip">Why study again?</a>
 </nav>
 
 <div class="boot" id="boot" role="dialog" aria-modal="true" aria-label="Booting another edition of this site" hidden>
