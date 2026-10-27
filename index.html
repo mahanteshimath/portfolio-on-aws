@@ -42,6 +42,7 @@
     <a href="#superpowers">Superpowers</a>
     <a href="#projects">Projects</a>
     <a href="#journey">Journey</a>
+    <a href="#silicon">Silicon</a>
     <a href="#contact">Contact</a>
   </nav>
   <button type="button" class="rewind-chip" id="rewindChip" aria-describedby="rewindHint">
@@ -72,6 +73,7 @@
       <dl class="spec" id="spec">
         <div><dt>Me, that year</dt><dd data-field="role">AI Lead, 3M · final year of M.Tech AI, IIT Jodhpur</dd></div>
         <div><dt>Typical machine</dt><dd class="mono" data-field="machine">32 GB laptop · models as a service (Amazon Bedrock)</dd></div>
+        <div class="spec-silicon"><dt>Silicon</dt><dd><span class="xs-slot" data-xs></span><span data-silicon>2 nm gate-all-around · 336 billion transistors on the biggest chip</span></dd></div>
         <div><dt>AI that year</dt><dd data-field="ai">Agents that retrieve, reason and act</dd></div>
         <div><dt>The machine could</dt><dd data-field="could">Models stopped being the hard part. Retrieval, evaluation and trust became the job.</dd></div>
         <div class="spec-built"><dt>I built</dt><dd data-field="built">RAG and agents over 8,000+ documents for 40,000+ users, an internal GPT for 60K+ people, and a Talent Navigator that shortlists 200+ resumes in under a minute.</dd></div>
@@ -286,6 +288,50 @@
     </div>
   </section>
 
+  <section class="sec" id="silicon" aria-labelledby="siTitle">
+    <h2 id="siTitle" class="h-sec">Silicon: Moore’s law under every rewind</h2>
+    <p class="sec-lede">In 1965 Gordon Moore saw the number of components on a chip doubling every year; in 1975 he revised it to every two years. Every rewind moves this cursor to that year’s silicon. Drag across the charts to visit any year since the Intel 4004.</p>
+
+    <figure class="moore panel" aria-labelledby="siCap">
+      <div class="moore-figs" id="mooreFigs"></div>
+
+      <aside class="moore-read" id="mooreRead" aria-label="Silicon at the cursor year">
+        <p class="m-year mono" data-m="year">2026</p>
+        <dl class="m-spec">
+          <div><dt>Biggest GPU</dt><dd data-m="gpu">336 billion · Nvidia GR200 Rubin (2026)</dd></div>
+          <div><dt>Biggest CPU</dt><dd data-m="cpu">227 billion · NVIDIA Vera (2026)</dd></div>
+          <div><dt>Process node</dt><dd data-m="node">2 nm · Intel 18A · TSMC N2</dd></div>
+          <div><dt>Densest CPU</dt><dd data-m="dens">183 million per mm²</dd></div>
+          <div><dt>Top clock</dt><dd data-m="clock">3.2 GHz (data ends 2021)</dd></div>
+          <div><dt>Doublings since 1971</dt><dd><span class="mono" data-m="dbl">27.2</span></dd></div>
+        </dl>
+        <div class="m-xs">
+          <span class="xs-slot xs-slot-lg" data-xs></span>
+          <p><strong data-m="struct">Gate-all-around</strong> <span data-m="structNote">Stacked nanosheets; the gate surrounds every side.</span></p>
+        </div>
+        <button type="button" class="btn btn-small" data-goto-era="2012" hidden>Boot the 2012 edition</button>
+      </aside>
+
+      <div class="moore-scrub">
+        <label for="mooreYear">Year</label>
+        <input type="range" id="mooreYear" min="1971" max="2026" step="1" value="2026">
+        <ul class="m-legend" aria-label="Chart key">
+          <li><span class="sw sw-gpu"></span>Biggest GPU</li>
+          <li><span class="sw sw-cpu"></span>Biggest CPU</li>
+          <li><span class="sw sw-dot"></span>Every CPU in the table</li>
+          <li><span class="sw sw-ideal"></span>Doubling every 2 years from the 4004</li>
+        </ul>
+      </div>
+
+      <figcaption id="siCap" class="moore-cap">
+        <p><strong>My 14 years:</strong> the biggest chip went from 7.08 billion transistors (2012) to 336 billion (2026), about 47 times more. That is a doubling every 2.5 years, a little slower than Moore’s two.</p>
+        <p><strong>MOSFET scaling:</strong> process names fell from 22 nm to 2 nm, though the names no longer measure anything physical. The real gains came from new transistor shapes: FinFET in 2012, gate-all-around in 2025.</p>
+        <p><strong>Clocks:</strong> top speed stopped climbing in the mid-2000s, when Dennard scaling ended. After that, more transistors meant more cores and bigger GPUs, the hardware my AI work runs on.</p>
+        <p class="moore-src">Largest chip per year, not a typical laptop. Data: Wikipedia, “Transistor count” (CC BY-SA 4.0); clock speeds: Karl Rupp, Microprocessor Trend Data (CC BY 4.0).</p>
+      </figcaption>
+    </figure>
+  </section>
+
   <section class="sec" id="contact" aria-labelledby="cTitle">
     <h2 id="cTitle" class="h-sec">Get in touch</h2>
     <div class="contact-grid">
@@ -302,7 +348,7 @@
 
 <footer class="foot">
   <p>Hosted on AWS Amplify Hosting · plain HTML, CSS and JavaScript · <a href="https://github.com/mahanteshimath/portfolio-on-aws" target="_blank" rel="noopener">source on GitHub</a></p>
-  <p class="foot-note">Rewind notes: machine specs are typical for each year, not exact models. “Ask the model” answers are illustrative reconstructions of each era’s behaviour, not real outputs. Career facts are real.</p>
+  <p class="foot-note">Rewind notes: machine specs are typical for each year, not exact models. “Ask the model” answers are illustrative reconstructions of each era’s behaviour, not real outputs. Career facts are real. Chip data comes from Wikipedia’s “Transistor count” (CC BY-SA 4.0) and Karl Rupp’s Microprocessor Trend Data (CC BY 4.0).</p>
 </footer>
 
 <nav class="era-only prompt-2024" data-only="2024" aria-label="Ask about Mahantesh">
@@ -323,6 +369,8 @@
   </div>
 </div>
 
+<script src="assets/js/moore-data.js" defer></script>
+<script src="assets/js/moore.js" defer></script>
 <script src="assets/js/rewind.js" defer></script>
 </body>
 </html>

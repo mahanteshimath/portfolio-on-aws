@@ -2,6 +2,8 @@
 
 Personal portfolio of **Mahantesh Hiremath**, AI Lead at 3M and M.Tech AI student at IIT Jodhpur. Built for the AWS Student Builder Challenge, *"Build Your Tech Superpower"*, and hosted on **AWS Amplify Hosting**.
 
+**Live site:** https://main.d1931ionu4gntw.amplifyapp.com/ · try the 2012 edition: https://main.d1931ionu4gntw.amplifyapp.com/?y=2012
+
 The story it tells: 14 years in data (since Oct 2012), then a student again in AI. That path runs from SAP iPad dashboards to banking data warehouses, cloud cost savings, and on to enterprise RAG and agents for 60K+ users.
 
 ![The 2026 edition on desktop](docs/screenshots/desktop-2026.png)
@@ -43,7 +45,9 @@ Machine specs are labelled "typical", and model answers are labelled as illustra
 | **2022** | **2024** | **2026** |
 | ![2022 edition](docs/screenshots/desktop-2022.png) | ![2024 edition](docs/screenshots/desktop-2024.png) | ![2026 edition](docs/screenshots/desktop-2026.png) |
 
-Mobile: [2012](docs/screenshots/mobile-2012.png) · [2024](docs/screenshots/mobile-2024.png) · [2026](docs/screenshots/mobile-2026.png)
+Mobile: [2012](docs/screenshots/mobile-2012.png) · [2024](docs/screenshots/mobile-2024.png) · [2026](docs/screenshots/mobile-2026.png) · Boot screen: [2012](docs/screenshots/boot-2012.png)
+
+All screenshots are captured from the live site.
 
 ## Sections
 
@@ -62,22 +66,33 @@ The 2024 edition adds a chat-style prompt bar. It sends a typed question ("What 
 
 | Service | Role |
 |---------|------|
-| **AWS Amplify Hosting** | Builds from this GitHub repo on every push, then serves the site over HTTPS on Amplify's managed CDN |
+| **AWS Amplify Hosting** | Serves the site over HTTPS on Amplify's managed CDN (app `d1931ionu4gntw`, branch `main`, region `us-east-1`) |
 
 The creative feature runs entirely in the browser, with all its content written in advance. The site has no backend, makes no API calls and has no runtime network dependencies, so nothing can break during judging.
 
-- [`amplify.yml`](amplify.yml): build spec. There is no build step; it publishes `index.html` and `assets/**`.
-- [`customHttp.yml`](customHttp.yml): response headers.
+How it's deployed: the live site is a **manual deployment**. `index.html` and `assets/` are zipped and uploaded to the `main` branch. Amplify is not connected to this repo, so a push to GitHub does not redeploy the site; each release is uploaded by hand.
+
+- [`amplify.yml`](amplify.yml): build spec, used only if the app is connected to Git. There is no build step; it publishes `index.html` and `assets/**`.
+- [`customHttp.yml`](customHttp.yml): response headers, applied to the Amplify app as its custom headers.
   - **Content-Security-Policy:** only the site's own files may load (`'self'`). No inline scripts or styles, no CDNs, `frame-ancestors 'none'`.
   - **Other security headers:** HSTS, `X-Content-Type-Options: nosniff`, and `Referrer-Policy`.
   - **Caching:** fonts are cached as immutable; CSS and JS are sent `no-cache` so a deploy shows up straight away.
 
 ### Deploy your own copy
 
+**Option A: manual deploy** (how the live site is deployed)
+
+1. Zip `index.html` and the `assets/` folder, with both at the top level of the zip.
+2. In the Amplify console, choose **Create new app → Deploy without Git** and upload the zip.
+3. Under **Hosting → Custom headers**, paste the contents of `customHttp.yml`.
+4. To release a change, upload a new zip.
+
+**Option B: connect to Git**
+
 1. Fork this repo.
 2. In the Amplify console, choose **Create new app → GitHub** and pick the repo and branch.
 3. Amplify detects `amplify.yml`. Keep the defaults and deploy.
-4. Every push to the branch redeploys.
+4. Every push to that branch redeploys automatically.
 
 ## Tech stack
 
@@ -92,10 +107,11 @@ index.html              All content and sections
 assets/
   css/site.css          Base styles + one skin per era via [data-era="YYYY"]
   js/rewind.js          Rewind dial: ERAS data, boot sequence, re-skin, ?y= links
-  js/moore-data.js      Generated transistor-count dataset (not loaded by the page yet)
+  js/moore-data.js      Generated transistor-count dataset for the Silicon section
+  js/moore.js           Silicon section: Moore's law charts with a year cursor that follows the dial
   fonts/                Self-hosted WOFF2 fonts
   favicon.svg
-docs/screenshots/       Desktop and mobile captures of each era
+docs/screenshots/       Desktop and mobile captures of each era, plus the boot screen (taken from the live site)
 amplify.yml             Amplify build spec
 customHttp.yml          Security and cache headers
 PRODUCT.md              Product brief: audience, positioning, constraints
@@ -110,7 +126,7 @@ python -m http.server 8000
 # open http://localhost:8000  (or http://localhost:8000/?y=2012)
 ```
 
-The headers in `customHttp.yml` only take effect on Amplify. To catch CSP problems before deploying, test the deployed preview URL as well.
+The headers in `customHttp.yml` only take effect on Amplify. To catch CSP problems before deploying, test the deployed preview URL as well, such as the [live site](https://main.d1931ionu4gntw.amplifyapp.com/).
 
 ## Editing content
 

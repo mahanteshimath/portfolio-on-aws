@@ -1,10 +1,10 @@
 # Submission draft: AWS Student Builder Challenge, "Build Your Tech Superpower"
 
-> Draft for Mahantesh to edit. Everything in [brackets] needs your input. Re-take the screenshots from the live URL before you submit, because the ones in `docs/screenshots/` were captured during development.
+> Draft for Mahantesh to edit. Everything in [brackets] needs your input. The screenshots in `docs/screenshots/` were captured from the live site.
 
 **Title:** A portfolio you can rewind: 14 years of data, and a student again
 
-**Live site:** [https://main.xxxxxxxx.amplifyapp.com]
+**Live site:** https://main.d1931ionu4gntw.amplifyapp.com
 **Code:** https://github.com/mahanteshimath/portfolio-on-aws
 
 ## The idea
@@ -24,7 +24,13 @@ Pick a year (2012, 2016, 2020, 2022, 2024 or 2026) and the site **reboots on tha
 
 The hint ("This site has been rebuilt six times. Pick a year…") and a pulsing dot on 2012 invite the first rewind. Navigation is never blocked.
 
-[Screenshots: 2026 home · 2012 edition · 2022 edition · 2024 on mobile · boot screen mid-count]
+Screenshots (from the live site, in `docs/screenshots/`):
+
+- 2026 home: `desktop-2026.png`
+- 2012 edition: `desktop-2012.png`
+- 2022 edition: `desktop-2022.png`
+- 2024 on mobile: `mobile-2024.png`
+- Boot screen mid-count: `boot-2012.png`
 
 ## Sections
 
@@ -38,10 +44,10 @@ The hint ("This site has been rebuilt six times. Pick a year…") and a pulsing 
 ## AWS services used
 
 - **AWS Amplify Hosting:**
-  - Git-connected CI/CD from GitHub: every push to `main` builds and deploys.
+  - The `main` branch is deployed as a production build by manual upload, through the Amplify deployment API.
   - A global CDN with managed HTTPS.
   - Custom response headers.
-- **`amplify.yml`:** an explicit artifact allowlist, so only `index.html` and `assets/` are published. My source notes and resume never ship.
+- **An explicit artifact allowlist:** only `index.html` and `assets/` are published (the upload zip contains just those, and `amplify.yml` lists the same artifacts for Git-connected builds). My source notes and resume never ship.
 - **`customHttp.yml`:**
   - A strict Content-Security-Policy (`'self'` only, no inline code, no third-party scripts or fonts), plus HSTS, `nosniff` and Referrer-Policy.
   - Year-long immutable caching for fonts, and `no-cache` revalidation for CSS/JS so redeploys are never stale.

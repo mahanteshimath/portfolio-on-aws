@@ -1,0 +1,170 @@
+{
+  "schema": "impeccable-design-sidecar",
+  "version": 1,
+  "name": "MH Datasheet + Rewind",
+  "designMd": "DESIGN.md",
+  "recordedFrom": ["index.html", "assets/css/site.css", "assets/js/rewind.js", "assets/fonts/*.woff2", "assets/favicon.svg", "customHttp.yml", "amplify.yml"],
+  "notPartOfSystem": {
+    "assets/js/moore-data.js": "Generated transistor dataset; not referenced by index.html. Ships with assets/**/* but unused."
+  },
+  "world": {
+    "default": "2026",
+    "thesis": "Component datasheet of one engineer; Rewind re-boots it on the machine and web of each era.",
+    "eraMechanism": "rewind.js sets data-era on <html>; skins are [data-era=\"YEAR\"] token overrides plus component overrides. Era values are pastiche and scoped; they never apply outside their scope."
+  },
+  "tokens": {
+    "color": {
+      "bg": "#ffffff",
+      "surface": "#f3f4f1",
+      "ink": "#111315",
+      "muted": "#555b61",
+      "rule": "#d6d8d3",
+      "rule-strong": "#111315",
+      "accent": "#0a7d3b",
+      "accent-soft": "#e3f2e8",
+      "accent-ink": "#ffffff",
+      "warn": "#a14a00",
+      "signal-on-ink": { "value": "#7ee2a2", "customProperty": false, "usedIn": [".rewind-chip-year", ".boot-log .ok", "favicon.svg"] }
+    },
+    "font": {
+      "body": "\"Archivo\", \"Segoe UI\", sans-serif",
+      "display": "\"Archivo\", \"Segoe UI\", sans-serif",
+      "mono": "\"JetBrains Mono\", ui-monospace, Consolas, monospace"
+    },
+    "fontFiles": {
+      "Archivo": { "file": "assets/fonts/archivo-latin.woff2", "weight": "100 900", "stretch": "62% 125%", "preload": true },
+      "JetBrains Mono": { "file": "assets/fonts/jbmono-latin.woff2", "weight": "400 700" },
+      "Lobster": { "file": "assets/fonts/lobster-400.woff2", "weight": "400", "era": "2012" },
+      "Roboto": { "file": "assets/fonts/roboto-400.woff2", "weight": "100 900", "era": "2016" },
+      "Poppins": { "files": ["poppins-400.woff2", "poppins-600.woff2", "poppins-800.woff2"], "era": "2020" }
+    },
+    "radius": "3px",
+    "pad": "clamp(20px, 4vw, 48px)",
+    "max": "1240px",
+    "ease": "cubic-bezier(.16, 1, .3, 1)"
+  },
+  "typeRamp": {
+    "display": { "selector": ".h-display", "size": "clamp(3.1rem, 8.2vw, 6rem)", "weight": 800, "stretch": "125%", "lineHeight": 0.9, "tracking": "-.035em" },
+    "section": { "selector": ".h-sec", "size": "clamp(2rem, 4vw, 3rem)", "weight": 750, "stretch": "112%", "lineHeight": 1, "tracking": "-.025em", "rule": "1.5px top, rule-strong" },
+    "lede": { "selector": ".contact-lede", "size": "clamp(1.3rem, 2.4vw, 1.75rem)", "weight": 600, "stretch": "105%", "lineHeight": 1.3 },
+    "itemTitle": { "selector": ".project h3", "size": "1.3rem", "weight": 700, "stretch": "108%" },
+    "subhead": { "selector": ".h-sub", "size": "1.25rem", "weight": 700, "stretch": "105%" },
+    "prose": { "selector": ".prose p", "size": "1.1rem", "lineHeight": 1.7, "measure": "66ch" },
+    "body": { "selector": "body", "size": "17px", "sizeAt640": "16px", "lineHeight": 1.6, "numeric": "tabular-nums" },
+    "table": { "selector": ".table", "size": "15.5px" },
+    "label": { "selector": ".spec dt, .table thead th, .table caption, .c-k", "size": "11.5-12px", "weight": 700, "stretch": "80%", "transform": "uppercase", "tracking": ".07-.08em" },
+    "mono": { "selector": ".mono", "size": ".92em", "tracking": "-.01em", "use": "measurements, years, part numbers, tags, meta, model answer, boot log" }
+  },
+  "eras": {
+    "2012": {
+      "style": "skeuomorphic Web 2.0",
+      "tokens": { "bg": "#dde2e8", "surface": "#f2f4f7", "ink": "#263449", "muted": "#4f5d70", "rule": "#c4ccd6", "rule-strong": "#8d9aab", "accent": "#3d7d1a", "accent-soft": "#eaf5df", "accent-ink": "#fff", "radius": "7px",
+        "font-body": "\"Lucida Grande\", \"Helvetica Neue\", Helvetica, Arial, sans-serif", "font-display": "\"Lobster\", Georgia, serif" },
+      "devices": ["linen weave body background", "gloss gradients", "text-shadow emboss", "dashed stitched outline on panels", "zebra table rows", "segmented dial", "orange gloss chip", "green gloss primary", "rotated 'Now on iPad!' badge"],
+      "bodySize": "15px", "boot": { "ms": 3400, "ramMB": 4096, "steppedProgress": true }, "typewriterCps": 0
+    },
+    "2016": {
+      "style": "flat Material Design",
+      "tokens": { "bg": "#fafafa", "surface": "#eeeeee", "ink": "#212121", "muted": "#616161", "rule": "#e0e0e0", "rule-strong": "#e0e0e0", "accent": "#3f51b5", "accent-soft": "#e8eaf6", "accent-ink": "#fff", "radius": "2px",
+        "font-body": "\"Roboto\", \"Segoe UI\", Arial, sans-serif", "font-display": "\"Roboto\", \"Segoe UI\", Arial, sans-serif" },
+      "extras": { "pink": "#d81b60", "pinkHover": "#c2185b", "snackbar": "#323232" },
+      "devices": ["indigo app bar", "elevation shadows", "uppercase text buttons", "pink raised primary", "tab-indicator dial (inset -3px pink)", "pill tags"],
+      "boot": { "ms": 2600, "ramMB": 8192, "steppedProgress": true }, "typewriterCps": 0
+    },
+    "2020": {
+      "style": "dark mode and glass",
+      "tokens": { "bg": "#0d0e1c", "surface": "rgba(255,255,255,.06)", "ink": "#eceaf8", "muted": "#b0b2cf", "rule": "rgba(255,255,255,.14)", "rule-strong": "rgba(255,255,255,.22)", "accent": "#a78bfa", "accent-soft": "rgba(167,139,250,.14)", "accent-ink": "#0d0e1c", "radius": "14px",
+        "font-body": "\"Poppins\", \"Segoe UI\", sans-serif", "font-display": "\"Poppins\", \"Segoe UI\", sans-serif", "color-scheme": "dark" },
+      "extras": { "gradient": "linear-gradient(135deg, #7c3aed, #0e7490)", "blobs": ["rgba(124,58,237,.55)", "rgba(6,182,212,.42)", "rgba(236,72,153,.38)"], "hint": "#fcd34d", "led": "#22d3ee" },
+      "devices": ["fixed blurred colour blobs", "frosted panels (backdrop blur 16-18px)", "gradient primary and pressed dial", "glow LED", "pill tags"],
+      "bodySize": "16px", "boot": { "ms": 1800, "ramMB": 16384, "steppedProgress": false }, "typewriterCps": 38
+    },
+    "2022": {
+      "style": "neo-brutalism",
+      "tokens": { "bg": "#fffdf2", "surface": "#ffffff", "ink": "#000000", "muted": "#333333", "rule": "#000000", "rule-strong": "#000000", "accent": "#000000", "accent-soft": "#b9f2d8", "accent-ink": "#ffffff", "radius": "10px" },
+      "extras": { "yellow": "#ffd23f", "mint": "#b9f2d8", "lilac": "#c4b5fd", "pink": "#ff9fb2" },
+      "devices": ["3px black borders", "hard offset shadows 4-7px", "5px pink offset text-shadow on display", "press-in buttons (translate 3px)", "uppercase 900 heads", "yellow bar under section heads", "rotating card colours"],
+      "fonts": "inherits Archivo",
+      "boot": { "ms": 1300, "ramMB": 16384, "steppedProgress": false }, "typewriterCps": 70
+    },
+    "2024": {
+      "style": "AI chat era",
+      "tokens": { "bg": "#ffffff", "surface": "#f4f4f6", "ink": "#18181b", "muted": "#52525b", "rule": "#e4e4e7", "rule-strong": "#e4e4e7", "accent": "#6d28d9", "accent-soft": "#f3eefe", "accent-ink": "#fff", "radius": "999px", "max": "820px",
+        "font-body": "system-ui, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif", "font-display": "system-ui, \"Segoe UI\", Roboto, Arial, sans-serif" },
+      "devices": ["820px single column", "grey rounded section bubbles (radius 26)", "user question bubble", "violet assistant-avatar dot before heads", "pill controls", "fixed prompt bar with question router"],
+      "promptRouter": { "form": "#ask2024", "routes": { "build|built|project|made|work": "#projects", "good|skill|superpower|stack|know": "#superpowers", "study|course|iit|m.tech|student|learn": "#coursework", "reach|email|contact|hire|linkedin|talk": "#contact", "journey|career|history|year": "#journey" }, "fallback": "#about", "focus": "section h2" },
+      "boot": { "ms": 900, "ramMB": 32768, "steppedProgress": false }, "typewriterCps": 110
+    },
+    "2026": {
+      "style": "component datasheet (base world)",
+      "tokens": "root",
+      "boot": { "ms": 450, "ramMB": 32768, "steppedProgress": false }, "typewriterCps": 160
+    }
+  },
+  "components": {
+    "bar": { "selector": ".bar", "sticky": true, "zIndex": 20, "minHeight": "60px", "grid": "auto 1fr auto", "parts": [".bar-id (chip icon, MH-<year> mono, .bar-sub)", ".nav", ".rewind-chip"] },
+    "rewindChip": { "selector": ".rewind-chip", "behaviour": "shows target year = previous era; at 2012 becomes 'Forward 2026'", "describedBy": "#rewindHint", "labelHiddenAt": 640 },
+    "machine": { "selector": ".machine.panel", "parts": {
+      "head": ".machine-head (ink band, title 'System <year>', .status-led Running)",
+      "spec": ".spec dl, 128px/1fr rows, .spec-built tinted accent-soft, data-field driven",
+      "ask": ".ask on surface; fixed question; .ask-answer mono typewriter with block caret; .ask-label",
+      "dial": ".dial role=toolbar, 6 aria-pressed buttons, roving tabindex, arrows/Home/End move, pressed = accent; 3x2 at <=640",
+      "hint": ".hint warn 600 with rewind icon" } },
+    "table": { "selector": ".table", "rows": "1px rule", "thead": "1.5px rule-strong underline", "cell": "13px 16px 13px 0", "wrap": ".table-wrap overflow-x auto",
+      "variants": {
+        "facts": "key facts; 38% muted row heads",
+        "chars": "superpowers; measured column accent mono",
+        "awards": "recognition; ink links; stacks at 640",
+        "revs": "journey revision history; Boot YEAR buttons; .rev-key tinted; card reflow at 640",
+        "course": "coursework (owner-added); .course-year rowgroup heads; .course-state dot badge (.is-live accent); .course-key tinted; .course-el muted 500; credits accent; card reflow at 640"
+      } },
+    "pinout": { "selector": ".pinout .chip", "grid": "1fr minmax(160px,260px) 1fr", "pins": "1-8 left, 16-9 right, 52x2px ink leads, mono numbers", "chipBody": "ink, radius 6px, notch 30x15", "at900": "chip on top, pins two columns, 14px leads" },
+    "projects": { "selector": ".projects > .project.panel", "2026": "datasheet rows grid 4/6/3, hairlines", "2012-2022": "card grid auto-fill minmax(300px,1fr)", "2024": "stacked white rounded cards", "parts": ["h3", ".project-meta mono", "p", ".tags mono boxes", ".link with i-out"] },
+    "button": { "selector": ".btn", "border": "1.5px solid ink", "padding": "14px 20px", "font": "600 15px/1", "hover": "invert to ink", "variants": { "btn-primary": "ink, hover accent", "btn-small": "8px 12px, 13px" }, "disabled": "opacity .45" },
+    "eraBanner": { "selector": ".era-banner", "hiddenAt": "2026", "background": "warn", "text": "edition notice + 'Hardware is typical for the year; model answers are illustrative.'", "action": "Back to 2026" },
+    "boot": { "selector": ".boot", "role": "dialog", "ariaModal": true, "zIndex": 200, "inertBehind": ["#eraBanner", "header.bar", "main", "footer", ".prompt-2024"],
+      "log": "mono 15px/1.7 #c9c9c9 on #000; dim BIOS header; CPU; memory counter to ramMB with mint OK; storage; AI/GPU (2020+); network; loading line",
+      "phases": { "post": 0.08, "memory": 0.38, "progress": 0.5 }, "progressSteps": { "before2020": 12 },
+      "skip": "button with Esc kbd; Escape anywhere", "fadeOut": ".35s", "after": "focus restored to trigger; scroll anchored; ?y=YEAR and title updated; aria-live announcement" },
+    "eraOnly": { "badge-2012": "rotated red gloss 'Now on iPad!'", "ask-2024": "user bubble radius 22 22 6 22", "prompt-2024": "fixed bottom bar, min(780px, 100% - 24px), radius 26, role=search input + 3 links (links hidden <=640)" }
+  },
+  "motion": {
+    "authored": "boot sequence only",
+    "functional": ["hover/state transitions .18-.2s var(--ease)", "typewriter caret steps(1) 1s", "2022 button press-in"],
+    "firstVisitPulse": { "target": "2012 dial key", "duration": "1.6s", "iterations": 6, "condition": "localStorage mh-rewound unset", "color": "warn" },
+    "reducedMotion": { "boot": "skipped (instant apply)", "typewriter": "skipped (full text)", "css": "animation/transition .001ms, 1 iteration; scroll-behavior auto" }
+  },
+  "breakpoints": {
+    "1080": "bar two rows; .bar-sub hidden; nav full-bleed horizontal scroller, hidden scrollbar, right-edge fade mask linear-gradient(90deg,#000 82%,transparent); scroll-padding-top 110px",
+    "900": "hero/about/contact/projects single column; pinout restacks",
+    "640": "body 16px; chip label hidden; spec stacks; dial 3x2; chars/revs/course reflow to cards; awards stack; prompt links hidden",
+    "min901_2024": "chip column minmax(120px,180px)"
+  },
+  "rules": [
+    "No eyebrow or kicker labels above headings; uppercase labels are datasheet fields only (captions, dt, contact keys).",
+    "Accent means active/measured/OK; warn only for hint, past-era banner and first-visit pulse.",
+    "1px rule between rows; 1.5px rule-strong for structure.",
+    "Mono only for measurements, years and identifiers.",
+    "Theme selection (accent/accent-ink), focus-visible (2px accent, 3px offset) and scrollbar-color (ink/surface).",
+    "WCAG AA text contrast in the base world.",
+    "Era pastiche is deliberate and scoped to [data-era]; detector hits for Roboto/Helvetica/system-ui/purple/glow/stripes/offset shadows inside era scopes are intentional and never inherited by the base world.",
+    "Machine specs labelled typical, model answers illustrative, career facts real.",
+    "Self-only CSP: no inline styles/scripts/handlers, self-hosted fonts; runtime styling via CSSOM only.",
+    "Feature never blocks navigation; boot always skippable."
+  ],
+  "contrastChecked": {
+    "2026": { "muted/bg": 6.87, "muted/surface": 6.23, "accent/bg": 5.24, "accent/accent-soft": 4.52, "warn/bg": 6.01, "signal-on-ink/ink": 11.78, "boot-dim/black": 6.08 },
+    "eraFixed": { "2016 white on #d81b60 (chip, primary)": 4.95, "2012 white on #3a7d12 (primary gloss mid)": 5.09, "2020 white on #0e7490 (gradient end)": 5.36 }
+  },
+  "knownDrift": [
+    "Status LED green #3ddc84 differs from signal-on-ink #7ee2a2 and accent; neither is a custom property.",
+    ".btn-ghost is used in markup (#heroJump) with no CSS rule; it renders as plain .btn.",
+    ".panel has no base-world rule; it is styled only inside era scopes.",
+    ".sec + .sec, .hero + .sec { border-top: 0 } is a no-op; [data-era=2024] .sec max-width calc(var(--max) - 2 * 0px) is a no-op calc.",
+    "Base .chip-body radius 6px is hard-coded outside --radius.",
+    "Direction contract said the 2012 boot counts to 1024 MB; the build counts to 4096 MB (4 GB laptop). Build recorded.",
+    "Direction contract nav omitted Coursework; the build has six nav items including Coursework.",
+    "Review screenshots in .impeccable/review predate Coursework and differ from current Journey/Superpowers rows.",
+    "Copy: About heading says 'after 13 years'; hero says 'Twelve years of data later, in 2024'; prose says 'almost fourteen years'."
+  ]
+}

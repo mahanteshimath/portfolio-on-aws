@@ -168,6 +168,7 @@
     if (past) url.searchParams.set("y", String(year)); else url.searchParams.delete("y");
     history.replaceState(null, "", url);
     live.textContent = past ? `Now showing the ${year} edition of this site.` : "Back to the 2026 edition.";
+    if (window.MooreLaw) window.MooreLaw.setYear(year);
   }
 
   function previousYear(year) {
@@ -195,6 +196,15 @@
     bootLog.insertAdjacentHTML("beforeend", html + "\n");
   }
 
+  function liveLine() {
+    const n = document.createElement("span");
+    bootLog.appendChild(n);
+    bootLog.appendChild(document.createTextNode("\n"));
+    return n;
+  }
+
+  const count = (n) => Math.round(n).toLocaleString("en-US");
+
   async function runBoot(year, token) {
     const b = ERAS[year].boot;
     bootLog.textContent = "";
@@ -211,9 +221,7 @@
     await wait(t * 0.08, token);
 
     // memory test counter
-    const memLine = document.createElement("span");
-    bootLog.appendChild(memLine);
-    bootLog.appendChild(document.createTextNode("\n"));
+    const memLine = liveLine();
     const memMs = t * 0.38;
     await animate(memMs, token, (p) => {
       memLine.textContent = `Memory   ${String(Math.round(b.ram * p)).padStart(5, " ")} MB`;
@@ -223,14 +231,33 @@
     line(`Storage  ${b.disk}`);
     if (b.gpu) line(`AI       ${b.gpu}`);
     line(`Network  ${b.net}`);
+
+    // Moore's law: double from the Intel 4004 up to this year's biggest chip
+    const m = window.MooreLaw ? window.MooreLaw.info(year) : null;
+    let mooreLine = null;
+    if (m) {
+      liveLine().textContent = `Silicon  ${m.node} ${m.structure.name} · ${m.nodeChip}`;
+      mooreLine = liveLine();
+    }
     line(`\nLoading portfolio, ${year} edition…`);
 
     // older machines stall: stepped progress before 2020
     await animate(t * 0.5, token, (p) => {
       const shown = year < 2020 ? Math.floor(p * 12) / 12 : p;
       bootFill.style.width = `${Math.round(shown * 100)}%`;
+      if (mooreLine) {
+        const d = m.doublings * p;
+        mooreLine.textContent = `Moore    ${count(2250 * 2 ** d).padStart(15, " ")} transistors · doubled ${Math.floor(d)}×`;
+      }
     });
     bootFill.style.width = "100%";
+    if (mooreLine && token === run) {
+      mooreLine.textContent = `Moore    ${count(m.top[1]).padStart(15, " ")} transistors · ${m.top[2]} `;
+      const ok = document.createElement("span");
+      ok.className = "ok";
+      ok.textContent = `×2 ${m.doublings.toFixed(1)} times since the 4004`;
+      mooreLine.appendChild(ok);
+    }
   }
 
   async function closeBoot() {
