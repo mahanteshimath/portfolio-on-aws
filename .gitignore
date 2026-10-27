@@ -1,0 +1,8 @@
+.env
+.env.*
+sources/
+.impeccable/live/
+.impeccable/review/
+*.log
+.DS_Store
+Thumbs.db

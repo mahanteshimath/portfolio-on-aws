@@ -1,0 +1,14 @@
+version: 1
+frontend:
+  phases:
+    build:
+      commands:
+        - echo "Static site, no build step"
+  artifacts:
+    baseDirectory: .
+    files:
+      - index.html
+      - assets/**/*
+  cache:
+    paths: []
+# Response headers (CSP, HSTS, caching) live in customHttp.yml, as Amplify recommends.

@@ -1,0 +1,143 @@
+{
+  "title": "Choose the visual world for your portfolio",
+  "question": "The roll assigned The Preprint. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "The Preprint (arXiv paper)",
+      "kicker": "THE ROLL",
+      "lineage": "arXiv abstract pages + LaTeX two-column papers",
+      "thesis": "Your portfolio typeset as a paper: 'Student Again: a 14-year longitudinal study of one data engineer'.",
+      "palette": ["#ffffff", "#111111", "#b31b1b", "#2a5db0"],
+      "materials": ["Computer Modern type", "booktabs tables", "rotated arXiv margin stamp", "pgfplots figures"],
+      "viewport": "Title, authors with affiliations (IIT Jodhpur, 3M), abstract, and live Figure 1: your career curve with a version slider v1 (2012) to v15 (2026).",
+      "risk": "Can read academic and dry if the figures are timid; handwriting-free, so personality must come from the copy.",
+      "raised": [
+        {"from": "challenger-ebru", "raise": "Rewind re-typesets the paper in place. No modal: the paper itself is the instrument."},
+        {"from": "challenger-quilt", "raise": "Every number carries a citation [n] stitched to its real source in the References."},
+        {"from": "challenger-ribbon", "raise": "Figure 1 is one continuous career line; reconstructed model answers set in hairline, facts in solid."}
+      ],
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "arXiv stamp", "x": 0, "y": 0, "w": 1, "h": 10},
+        {"label": "title + authors", "x": 2, "y": 0, "w": 9, "h": 2},
+        {"label": "abstract", "x": 3, "y": 2, "w": 7, "h": 2},
+        {"label": "Figure 1: rewind slider", "x": 2, "y": 4, "w": 9, "h": 4, "accent": true},
+        {"label": "1 Intro", "x": 2, "y": 8, "w": 4, "h": 2},
+        {"label": "2 Superpowers", "x": 7, "y": 8, "w": 4, "h": 2}
+      ]}
+    },
+    {
+      "id": "model-pick",
+      "label": "The 2012 Executive Dashboard",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "SAP BusinessObjects / Xcelsius iPad dashboards you built at TCS",
+      "thesis": "Your career as the KPI dashboard you used to build: gauges, a time slicer, drill-down tiles.",
+      "palette": ["#1f3b5c", "#e9edf2", "#f2a33a", "#5b9b3c"],
+      "materials": ["glossy gauges", "bevelled tiles", "slicer bar"],
+      "viewport": "A single dashboard canvas: KPIs ($1M saved, 60K users, 14 yrs) as gauges, the Rewind as the dashboard's year slicer.",
+      "risk": "The most familiar form for a data person; dashboards are where many 'data portfolio' entries land.",
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "header bar", "x": 0, "y": 0, "w": 12, "h": 1},
+        {"label": "year slicer", "x": 0, "y": 1, "w": 12, "h": 1, "accent": true},
+        {"label": "gauge", "x": 0, "y": 2, "w": 4, "h": 3},
+        {"label": "gauge", "x": 4, "y": 2, "w": 4, "h": 3},
+        {"label": "gauge", "x": 8, "y": 2, "w": 4, "h": 3},
+        {"label": "drill-down tiles", "x": 0, "y": 5, "w": 12, "h": 5}
+      ]}
+    },
+    {
+      "id": "challenger-cassette",
+      "label": "The Mixtape J-card",
+      "verdict": "wins",
+      "lineage": "hand-lettered cassette inlays, side A / side B",
+      "thesis": "Side A: Data (2012-2024). Side B: AI, student again (2025-). Press rewind and the tape runs back to 2012.",
+      "palette": ["#fbfbf7", "#2340a8", "#8a8a8a", "#d62a1e"],
+      "materials": ["ruled inlay card", "ballpoint block caps", "tape counter", "spine label"],
+      "viewport": "Folded J-card: spine with your name, front flap headline, tracklist of career eras with running times; a tape deck with a working REWIND key.",
+      "case": "Fuses cleanly: Side A / Side B states your pivot in two words, and 'rewind' is native to the form. Beats the Preprint on recognisability and clarity.",
+      "risk": "Nostalgic novelty if the deck is a costume; handwriting must stay for headings only so body text reads.",
+      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-cassette-j-card-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/vernacular-ephemera-cassette-j-card.webp"
+    },
+    {
+      "id": "challenger-segments",
+      "label": "Time Circuits (seven-segment)",
+      "verdict": "competitive",
+      "lineage": "seven-segment clocks, scoreboards, the movie time-machine dashboard",
+      "thesis": "Destination time / present time panels: dial in 2012 and the whole display re-lights that year.",
+      "palette": ["#0b0b0b", "#ff2a1a", "#ffb000", "#2bd65a"],
+      "materials": ["LED segments", "ghost cells", "matte black panel"],
+      "viewport": "Three stacked LED panels (DESTINATION / PRESENT / LAST DEPARTED) over your name; your metrics as scoreboard digits.",
+      "case": "Very memorable and native to 'time machine', but long career text in a digit world loses clarity.",
+      "risk": "Literal time-machine reading; body copy needs a second face to stay readable.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-seven-segment-alarm-clock-hero.webp"
+    },
+    {
+      "id": "challenger-swiss",
+      "label": "Swiss Poster Wall",
+      "verdict": "competitive",
+      "lineage": "International Style concert posters",
+      "thesis": "Each career era is one poster on a single grid; rewind re-sorts the wall.",
+      "palette": ["#ffffff", "#000000", "#e30613"],
+      "materials": ["grotesk type", "geometric arcs and bars"],
+      "viewport": "Wall of 6 era posters, the current one large; red bar marks the active year.",
+      "case": "Holds clarity and judges read it as 'designed', but nothing in it is uniquely you.",
+      "risk": "Close to the category standard; personality depends entirely on copy.",
+      "hero": "https://impeccable.style/worlds/cards/design-canon-swiss-grid-poster-wall-hero.webp"
+    },
+    {
+      "id": "challenger-ebru",
+      "label": "Ebru marbling bath",
+      "verdict": "declined",
+      "lineage": "floated-pigment paper marbling",
+      "thesis": "Navigation as stirring a liquid surface.",
+      "palette": ["#1d3d6e", "#d9a441", "#b8322a", "#e9e2d0"],
+      "materials": ["floating pigment", "single-contact print"],
+      "viewport": "Full-bleed bath, career eras as pigment drops.",
+      "case": "Fuses poorly: judges and recruiters do not read a data/AI career in it.",
+      "risk": "Beautiful but tells nobody what you do.",
+      "kept": "One surface acted on in place: Rewind changes the page itself, never opens a modal.",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-ebru-floated-pigment-hero.webp"
+    },
+    {
+      "id": "challenger-quilt",
+      "label": "Memory quilt",
+      "verdict": "declined",
+      "lineage": "pieced quilts with provenance",
+      "thesis": "Each era a patch with its own history.",
+      "palette": ["#5b7fa6", "#1a1a1a", "#c8102e", "#6b4423"],
+      "materials": ["pieced cloth", "stitch rules"],
+      "viewport": "A grid of unequal patches.",
+      "case": "Fuses poorly: domestic register undersells enterprise impact.",
+      "risk": "Sentimental.",
+      "kept": "Every claim seamed to its source: each metric cites the real award or resume line.",
+      "hero": "https://impeccable.style/worlds/cards/textiles-weave-drape-fashion-memory-quilt-atlas-hero.webp"
+    },
+    {
+      "id": "challenger-ribbon",
+      "label": "Provenance ribbon",
+      "verdict": "declined",
+      "lineage": "museum provenance records",
+      "thesis": "One ribbon through every owner of an object.",
+      "palette": ["#e8dcc4", "#b0162b", "#8a8a8a"],
+      "materials": ["silk ribbon", "archival buff"],
+      "viewport": "A vertical ribbon with dated folds.",
+      "case": "Fuses partly, but archival buff lands on the cream default and reads museum, not AI.",
+      "risk": "Generic heritage look.",
+      "kept": "One continuous line through every era, with known facts solid and reconstructions hairline.",
+      "hero": "https://impeccable.style/worlds/cards/exhibition-museum-curation-provenance-ribbon-hero.webp"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": false},
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A clean developer portfolio: hero, skills grid, project cards, executed impeccably.",
+    "palette": ["#ffffff", "#111827", "#2563eb"],
+    "materials": ["clean grid", "project cards"],
+    "viewport": "Name and title, short intro, CTA buttons; Rewind sits as a section below.",
+    "risk": "Indistinguishable from most entries by design; creativity score rests only on the feature."
+  },
+  "steer": true
+}

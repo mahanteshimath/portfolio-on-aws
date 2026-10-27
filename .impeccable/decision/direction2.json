@@ -1,0 +1,140 @@
+{
+  "title": "Choose the visual world for your portfolio (round 2)",
+  "question": "The roll assigned The Dabba. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "The Dabba (tiffin stack)",
+      "kicker": "THE ROLL",
+      "lineage": "Mumbai dabbawala tiffins and their painted routing code; your TCS Mumbai years, 2012-2015",
+      "thesis": "Family, office, study, stacked: your life as a steel tiffin. Each tier opens to a section, and the lid carries the dabbawala-style route code of your career.",
+      "palette": ["#c9ced3", "#2b2f33", "#c8102e", "#1f8a3b", "#f2c230"],
+      "materials": ["brushed stainless steel", "hand-painted lid codes", "cotton carry bag", "paper chit in the lid"],
+      "viewport": "A tall steel dabba centred on a charcoal ground, its tiers labelled ABOUT / SUPERPOWERS / PROJECTS / JOURNEY, your name painted on the lid like a route code. The clasp is the Rewind dial.",
+      "risk": "Charming but indirect; judges outside India may need one line explaining the dabbawala code, and steel must be rendered with craft, not clip-art.",
+      "raised": [
+        {"from": "challenger-type-specimen", "raise": "One Rewind value drives the whole page through a single custom property, so every tier re-packs at once."},
+        {"from": "challenger-leather", "raise": "You open tiers by handling the clasp and lids, never by clicking a generic tab."},
+        {"from": "challenger-tropicalia", "raise": "Deliberately wrong scale: one giant painted number per tier ($1M, 60K, 14 yrs) beside small type."}
+      ],
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "lid + route code (name)", "x": 3, "y": 0, "w": 6, "h": 2},
+        {"label": "clasp = Rewind dial", "x": 9, "y": 1, "w": 2, "h": 3, "accent": true},
+        {"label": "tier: ABOUT", "x": 3, "y": 2, "w": 6, "h": 2},
+        {"label": "tier: SUPERPOWERS", "x": 3, "y": 4, "w": 6, "h": 2},
+        {"label": "tier: PROJECTS", "x": 3, "y": 6, "w": 6, "h": 2},
+        {"label": "tier: JOURNEY", "x": 3, "y": 8, "w": 6, "h": 2}
+      ]}
+    },
+    {
+      "id": "model-pick",
+      "label": "Model Card: mahantesh-v14",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "AI model cards and checkpoint histories",
+      "thesis": "You as a model being fine-tuned again: a model card with training data (14 years), evals (real metrics) and a checkpoint picker 2012 to 2026.",
+      "palette": ["#ffffff", "#0f172a", "#ff9d00", "#6b7280"],
+      "materials": ["model card layout", "tag chips", "checkpoint history", "inference widget"],
+      "viewport": "Model header 'mahantesh-v14 · fine-tuned on IIT Jodhpur M.Tech AI', tags, an inference box where visitors ask a question and pick a checkpoint year.",
+      "risk": "Familiar to AI people and close to a well-known site's look; can read derivative.",
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "model header + tags", "x": 0, "y": 0, "w": 12, "h": 2},
+        {"label": "model card text", "x": 0, "y": 2, "w": 8, "h": 8},
+        {"label": "inference widget + checkpoint picker", "x": 8, "y": 2, "w": 4, "h": 5, "accent": true},
+        {"label": "evals", "x": 8, "y": 7, "w": 4, "h": 3}
+      ]}
+    },
+    {
+      "id": "challenger-daylight",
+      "label": "Daylight Section",
+      "verdict": "competitive",
+      "lineage": "architects' sun-path sections",
+      "thesis": "A section through your house: the sun moves from family breakfast to office desk to the late-night study table where IIT happens.",
+      "palette": ["#f4f1ea", "#2a2a2a", "#e8a33d", "#5a7aa6"],
+      "materials": ["limewash walls", "section poche", "travelling sunbeam"],
+      "viewport": "A long building section with three rooms; drag the sun (the Rewind) across years and hours.",
+      "case": "Captures 'family, office, student' truthfully and memorably, but the tech story reads second.",
+      "risk": "Architectural world needs careful copy so judges see a data/AI engineer.",
+      "hero": "https://impeccable.style/worlds/cards/architecture-inhabitable-space-daylight-section-hero.webp"
+    },
+    {
+      "id": "challenger-nixie",
+      "label": "Nixie Lab Counter",
+      "verdict": "competitive",
+      "lineage": "laboratory nixie-tube counters",
+      "thesis": "Your metrics glow in tube banks; Rewind counts the year tubes from 2026 back to 2012 and every bank re-lights.",
+      "palette": ["#0d0d0d", "#ff7a1a", "#8a8f94"],
+      "materials": ["glass tubes", "blackened steel", "anode mesh"],
+      "viewport": "Year bank front and centre, metric banks below ($1M, 60K users, 200+ resumes).",
+      "case": "Engineers love it and numbers read instantly, but the story is thin in a world of digits.",
+      "risk": "Close to the 'dark panel with one glowing accent' look.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-nixie-laboratory-counter-hero.webp"
+    },
+    {
+      "id": "challenger-quotes",
+      "label": "\"STUDENT\" (industrial quote grammar)",
+      "verdict": "competitive",
+      "lineage": "industrial streetwear labelling",
+      "thesis": "Name the obvious in quotes: a 14-year veteran labelled \"STUDENT\". Every zone is its quoted name.",
+      "palette": ["#ffffff", "#111111", "#ff5a00"],
+      "materials": ["hazard stripes", "zip-tie tags", "stencil label plates"],
+      "viewport": "Giant \"STUDENT\" in caps across a white field, a hazard stripe under \"AGAIN\"; orange zip-tie on the active section.",
+      "case": "Wayfinding is crystal clear and witty, but streetwear isn't your world.",
+      "risk": "Could read as fashion branding rather than you.",
+      "hero": "https://impeccable.style/worlds/cards/textiles-weave-drape-fashion-industrial-quote-grammar-hero.webp"
+    },
+    {
+      "id": "challenger-type-specimen",
+      "label": "Variable font specimen",
+      "verdict": "declined",
+      "lineage": "foundry type specimens",
+      "thesis": "One slider morphs every glyph.",
+      "palette": ["#fafafa", "#111111", "#3355ff"],
+      "materials": ["giant glyphs", "axis readouts"],
+      "viewport": "A giant letter that thickens as you drag.",
+      "case": "Fuses poorly: about type, not about you.",
+      "risk": "Design-nerd only.",
+      "kept": "One slider drives the whole page continuously through a single custom property.",
+      "hero": "https://impeccable.style/worlds/cards/variable-font-specimen-hero.webp"
+    },
+    {
+      "id": "challenger-tropicalia",
+      "label": "Tropicália collage",
+      "verdict": "declined",
+      "lineage": "Brazilian album-sleeve paste-ups",
+      "thesis": "Cut-out figures at wrong scales.",
+      "palette": ["#1f8a3b", "#ffb400", "#e2462c"],
+      "materials": ["cut-out photos", "concrete poetry"],
+      "viewport": "A crowded collage.",
+      "case": "Fuses poorly: needs photos you don't have and reads chaotic.",
+      "risk": "Unreadable for judges skimming.",
+      "kept": "Deliberately wrong scale contrast: one giant figure beside small type.",
+      "hero": "https://impeccable.style/worlds/cards/posters-covers-sleeves-tropicalia-sleeve-collage-hero.webp"
+    },
+    {
+      "id": "challenger-leather",
+      "label": "Leather skeuomorph shelf",
+      "verdict": "declined",
+      "lineage": "2010-era skeuomorphic apps",
+      "thesis": "Sections as physical objects on a shelf.",
+      "palette": ["#a8743f", "#efe6d6", "#5a3b22"],
+      "materials": ["stitched leather", "linen", "torn paper"],
+      "viewport": "A bookshelf of sections.",
+      "case": "Fuses poorly: lamplight-and-leather is the warm default, and it isn't you.",
+      "risk": "Dated.",
+      "kept": "Things are handled, not clicked: open tiers by their own mechanism.",
+      "hero": "https://impeccable.style/worlds/cards/digital-design-canon-skeuomorph-leather-studio-hero.webp"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": false},
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A clean developer portfolio: hero, skills grid, project cards, executed impeccably.",
+    "palette": ["#ffffff", "#111827", "#2563eb"],
+    "materials": ["clean grid", "project cards"],
+    "viewport": "Name and title, short intro, CTA buttons; Rewind sits as a section below.",
+    "risk": "Indistinguishable from most entries by design; creativity score rests only on the feature."
+  },
+  "steer": true
+}
