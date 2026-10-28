@@ -248,6 +248,60 @@
         <p>Architected a $5M+ banking data warehouse for Bank Negara Malaysia, replacing the old system across 10+ subject areas; 35% faster critical jobs.</p>
         <ul class="tags"><li>SAP BODS</li><li>Oracle</li><li>Data modelling</li></ul>
       </li>
+    </ol>
+
+    <h3 class="h-sub">Built on AWS, in public</h3>
+    <p class="sec-lede">Side builds from AWS Builder Center challenges and hackathons. Each one is open source, and most are still running.</p>
+    <ol class="projects">
+      <li class="project panel">
+        <h3>TariffTrail</h3>
+        <p class="project-meta mono">Oct 2026 · AWS Builder Center · Strands Decider</p>
+        <p>Finds a product’s 10-digit US tariff code. Strands Decider 2B walks the official tariff tree one fork at a time, with “none of these” at every level, then one Amazon Bedrock call picks among real codes, so it cannot invent one. On 332 held-out 2026 CBP rulings: 36.7% exact and 0% invented codes, against 0.3% for Nova Pro asked directly, using 7.8× fewer tokens than a tool-calling agent. A human confirms every filing.</p>
+        <ul class="tags"><li>Strands Agents</li><li>Amazon Bedrock</li><li>Titan Embeddings</li><li>AWS Amplify</li></ul>
+        <p class="project-links"><a class="link" href="https://main.d3o5ktn9yc15oj.amplifyapp.com/" target="_blank" rel="noopener">Live demo <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a><a class="link" href="https://github.com/mahanteshimath/AWS-Strands-Decider-Hackathon" target="_blank" rel="noopener">Source <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p>
+      </li>
+      <li class="project panel">
+        <h3>Crayon Cinema</h3>
+        <p class="project-meta mono">Oct 2026 · Amazon Developer Hackathon · Fire TV</p>
+        <p>Tonight’s bedtime story stars whatever your child drew today. A parent photographs the drawing; Strands agents on Bedrock AgentCore cast the drawing as the hero and write a branching story, Amazon Polly reads it aloud with word-by-word highlighting, and the child chooses what happens next with the remote. Bedrock Guardrails check everything a child sees, and the photo is deleted once the hero is cut out.</p>
+        <ul class="tags"><li>Bedrock AgentCore</li><li>Strands Agents</li><li>Amazon Polly</li><li>Bedrock Guardrails</li><li>AWS Lambda</li></ul>
+        <p class="project-links"><a class="link" href="https://e7szjoxoeoyy3fwly4nyzjv2e40djaoh.lambda-url.us-east-1.on.aws/tv/" target="_blank" rel="noopener">Live web build <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a><a class="link" href="https://github.com/mahanteshimath/aws-hackathon-devpost" target="_blank" rel="noopener">Source <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p>
+      </li>
+      <li class="project panel">
+        <h3>Resilience Simulator</h3>
+        <p class="project-meta mono">Oct 2026 · AWS Builder challenge · climate</p>
+        <p>A flood digital twin of Kurla, Mumbai, on real OpenStreetMap roads and SRTM terrain. Raise the rainfall, close a bridge or cut a substation, and a deterministic engine re-routes traffic and counts who loses hospital access. Amazon Bedrock writes the situation brief only after the facts are computed, and a rule-based brief takes over if it cites anything that isn’t in them.</p>
+        <ul class="tags"><li>AWS Amplify</li><li>API Gateway</li><li>AWS Lambda</li><li>Amazon Bedrock</li><li>AWS SAM</li></ul>
+        <p class="project-links"><a class="link" href="https://main.dxhzlkmrgksnx.amplifyapp.com" target="_blank" rel="noopener">Live app <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a><a class="link" href="https://github.com/mahanteshimath/aws-builder-challenge-oct-02" target="_blank" rel="noopener">Source <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p>
+      </li>
+      <li class="project panel">
+        <h3>QuickSplit</h3>
+        <p class="project-meta mono">Sep 2026 · AWS Builder challenge · serverless</p>
+        <p>A no-sign-up expense splitter that settles a group in the fewest practical payments. React on Amplify, API Gateway and four Lambda functions over one DynamoDB table, all defined in AWS SAM. Nova on Bedrock writes an optional trip recap; the maths works without it.</p>
+        <ul class="tags"><li>AWS Lambda</li><li>DynamoDB</li><li>API Gateway</li><li>AWS SAM</li></ul>
+        <p class="project-links"><a class="link" href="https://main.d37erbsbc5jqv7.amplifyapp.com" target="_blank" rel="noopener">Live app <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a><a class="link" href="https://github.com/mahanteshimath/aws-builder-challenge-sep-11" target="_blank" rel="noopener">Source <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p>
+      </li>
+      <li class="project panel">
+        <h3>AstroMuse</h3>
+        <p class="project-meta mono">Aug 2026 · AWS Builder Center · always-on agent</p>
+        <p>An agent with no button and no UI. Every day at 12:00 UTC, EventBridge wakes a Lambda that fetches NASA’s Astronomy Picture of the Day, looks at the photo with Nova Lite, rereads its own last three entries from S3, then writes the next starship captain’s log and draws a pulp-magazine cover for it in SVG. IAM is scoped to two models and one bucket.</p>
+        <ul class="tags"><li>Amazon EventBridge</li><li>AWS Lambda</li><li>Amazon Bedrock</li><li>Amazon S3</li></ul>
+        <a class="link" href="https://github.com/mahanteshimath/aws-builder-Challenge-Aug-21" target="_blank" rel="noopener">Source on GitHub <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
+      </li>
+      <li class="project panel">
+        <h3>Dream Postcards</h3>
+        <p class="project-meta mono">Aug 2026 · AWS Builder Center · weekend build</p>
+        <p>Describe a dream and get a vintage travel postcard back. Nova Lite writes the note on the back and art-directs the front, choosing the landscape, palette and height of the sun, and a small renderer draws it as a layered SVG poster. Drawing in code instead of with an image model made it cheaper, faster and repeatable.</p>
+        <ul class="tags"><li>Amazon Bedrock</li><li>AWS Lambda</li><li>DynamoDB</li><li>CloudFormation</li></ul>
+        <p class="project-links"><a class="link" href="https://main.d5c14kpdhh5ai.amplifyapp.com" target="_blank" rel="noopener">Live app <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a><a class="link" href="https://github.com/mahanteshimath/aws-builder-Challenge-Aug-14" target="_blank" rel="noopener">Source <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p>
+      </li>
+      <li class="project panel">
+        <h3>Live weather for Indian cities</h3>
+        <p class="project-meta mono">Jun 2025 · AWS Lambda Hackathon · with Darshan</p>
+        <p>A Lambda ETL that pulls weather for major Indian cities into Snowflake, triggered on demand from a Streamlit dashboard of temperature, humidity and wind trends.</p>
+        <ul class="tags"><li>AWS Lambda</li><li>Snowflake</li><li>Streamlit</li></ul>
+        <a class="link" href="https://github.com/mahanteshimath/AWS_Lambda_Hackathon" target="_blank" rel="noopener">Source on GitHub <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
+      </li>
       <li class="project panel">
         <h3>This portfolio, on AWS</h3>
         <p class="project-meta mono">2026 · Amplify · Lambda · Bedrock</p>
@@ -256,6 +310,7 @@
         <a class="link" href="https://github.com/mahanteshimath/portfolio-on-aws" target="_blank" rel="noopener">Source on GitHub <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
       </li>
     </ol>
+    <p class="aws-notes">I also write AWS explainers: <a href="https://mahanteshimath.github.io/aws-agentcore-guide/" target="_blank" rel="noopener">Bedrock AgentCore in 10 concepts</a> · <a href="https://mahanteshimath.github.io/lang-to-aws-strands/" target="_blank" rel="noopener">LangChain to Strands migration</a> · <a href="https://mahanteshimath.github.io/vscode-vs-kiro/" target="_blank" rel="noopener">VS Code vs Kiro</a> · <a href="https://mahanteshimath.github.io/OpenSearch-Comparison/" target="_blank" rel="noopener">OpenSearch for RAG</a> · <a href="https://mahanteshimath.github.io/AWS-vs-Azure-Grounding-Comparison/" target="_blank" rel="noopener">Nova web grounding vs Azure</a> · <a href="https://mahanteshimath.github.io/AWS-Re-Invent-2025-Overview/" target="_blank" rel="noopener">re:Invent 2025 learning hub</a></p>
 
     <h3 class="h-sub">Recognition</h3>
     <div class="table-wrap">

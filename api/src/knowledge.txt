@@ -120,6 +120,65 @@ Architected a $5M+ banking data warehouse for Bank Negara Malaysia, replacing th
 SAP BODS
 Oracle
 Data modelling
+Built on AWS, in public
+Side builds from AWS Builder Center challenges and hackathons. Each one is open source, and most are still running.
+TariffTrail
+Oct 2026 · AWS Builder Center · Strands Decider
+Finds a product's 10-digit US tariff code. Strands Decider 2B walks the official tariff tree one fork at a time, with "none of these" at every level, then one Amazon Bedrock call picks among real codes, so it cannot invent one. On 332 held-out 2026 CBP rulings: 36.7% exact and 0% invented codes, against 0.3% for Nova Pro asked directly, using 7.8× fewer tokens than a tool-calling agent. A human confirms every filing.
+Strands Agents
+Amazon Bedrock
+Titan Embeddings
+AWS Amplify
+Live demo Source
+Crayon Cinema
+Oct 2026 · Amazon Developer Hackathon · Fire TV
+Tonight's bedtime story stars whatever your child drew today. A parent photographs the drawing; Strands agents on Bedrock AgentCore cast the drawing as the hero and write a branching story, Amazon Polly reads it aloud with word-by-word highlighting, and the child chooses what happens next with the remote. Bedrock Guardrails check everything a child sees, and the photo is deleted once the hero is cut out.
+Bedrock AgentCore
+Strands Agents
+Amazon Polly
+Bedrock Guardrails
+AWS Lambda
+Live web build Source
+Resilience Simulator
+Oct 2026 · AWS Builder challenge · climate
+A flood digital twin of Kurla, Mumbai, on real OpenStreetMap roads and SRTM terrain. Raise the rainfall, close a bridge or cut a substation, and a deterministic engine re-routes traffic and counts who loses hospital access. Amazon Bedrock writes the situation brief only after the facts are computed, and a rule-based brief takes over if it cites anything that isn't in them.
+AWS Amplify
+API Gateway
+AWS Lambda
+Amazon Bedrock
+AWS SAM
+Live app Source
+QuickSplit
+Sep 2026 · AWS Builder challenge · serverless
+A no-sign-up expense splitter that settles a group in the fewest practical payments. React on Amplify, API Gateway and four Lambda functions over one DynamoDB table, all defined in AWS SAM. Nova on Bedrock writes an optional trip recap; the maths works without it.
+AWS Lambda
+DynamoDB
+API Gateway
+AWS SAM
+Live app Source
+AstroMuse
+Aug 2026 · AWS Builder Center · always-on agent
+An agent with no button and no UI. Every day at 12:00 UTC, EventBridge wakes a Lambda that fetches NASA's Astronomy Picture of the Day, looks at the photo with Nova Lite, rereads its own last three entries from S3, then writes the next starship captain's log and draws a pulp-magazine cover for it in SVG. IAM is scoped to two models and one bucket.
+Amazon EventBridge
+AWS Lambda
+Amazon Bedrock
+Amazon S3
+Source on GitHub
+Dream Postcards
+Aug 2026 · AWS Builder Center · weekend build
+Describe a dream and get a vintage travel postcard back. Nova Lite writes the note on the back and art-directs the front, choosing the landscape, palette and height of the sun, and a small renderer draws it as a layered SVG poster. Drawing in code instead of with an image model made it cheaper, faster and repeatable.
+Amazon Bedrock
+AWS Lambda
+DynamoDB
+CloudFormation
+Live app Source
+Live weather for Indian cities
+Jun 2025 · AWS Lambda Hackathon · with Darshan
+A Lambda ETL that pulls weather for major Indian cities into Snowflake, triggered on demand from a Streamlit dashboard of temperature, humidity and wind trends.
+AWS Lambda
+Snowflake
+Streamlit
+Source on GitHub
 This portfolio, on AWS
 2026 · Amplify · Lambda · Bedrock
 Static HTML, CSS and JavaScript with no framework, on AWS Amplify Hosting. Only index.html and assets/ are published, so source notes never ship, and custom headers set a strict Content Security Policy, HSTS and cache rules. Six era skins, one boot sequence. In the 2024 edition the Ask box is real: a Lambda function URL asks Amazon Nova on Bedrock, which answers only from this page's text, with daily limits kept in DynamoDB.
@@ -128,6 +187,7 @@ AWS Lambda
 Amazon Bedrock
 DynamoDB
 Source on GitHub
+I also write AWS explainers: Bedrock AgentCore in 10 concepts · LangChain to Strands migration · VS Code vs Kiro · OpenSearch for RAG · Nova web grounding vs Azure · re:Invent 2025 learning hub
 Recognition
 Hackathons | Snowflake Hackathon, 2nd prize and 2× top-5 finalist · Hive Challenge winner · Dremio hackathon runner-up
 At work | 3M Annual 1% TCC Award · 3M CREST, GOLD and SILVER awards · IBM Manager's Choice Award (2019) · 10/10 IBM client rating · TCS On-the-Spot awards

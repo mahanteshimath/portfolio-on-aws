@@ -40,7 +40,7 @@ Screenshots and video (from the live site, in `docs/`):
 - **About:** my story, in my words, plus key facts.
 - **Coursework:** the modules of the M.Tech.
 - **Superpowers:** a "characteristics" table with measured results (8,000+ docs for 40K users, $1M/yr saved, 200+ resumes in under a minute), plus a chip pinout of the stack I wire together.
-- **Projects & achievements:** Talent Navigator, enterprise RAG and agents, agentic RAG on arXiv papers, Bazaar AI Saathi (featured by Perplexity), a $1M/yr HANA optimisation, a central-bank data warehouse, and hackathon wins.
+- **Projects & achievements:** Talent Navigator, enterprise RAG and agents, agentic RAG on arXiv papers, Bazaar AI Saathi (featured by Perplexity), a $1M/yr HANA optimisation, a central-bank data warehouse, and hackathon wins. A second group, "Built on AWS, in public", links seven open-source AWS builds with live demos where they still run: TariffTrail (Strands Decider + Bedrock), Crayon Cinema (Bedrock AgentCore on Fire TV), Resilience Simulator, QuickSplit, AstroMuse, Dream Postcards and a Lambda weather ETL, plus six AWS explainer pages.
 - **Journey:** a datasheet "revision history" from Rev 1.0 (TCS, 2012) to Rev 7.0 (AI Lead, 2025). Every revision can boot its year.
 - **Contact.**
 

@@ -58,7 +58,7 @@ All screenshots are captured from the live site.
 | **About** | A student again after 13 years in data |
 | **Coursework** | The M.Tech AI core curriculum at IIT Jodhpur |
 | **Superpowers** | Skills and tech stack |
-| **Projects & achievements** | Enterprise RAG and agents at 3M, hackathon wins, Bazaar-ai-saathi (featured in the Perplexity docs), and this site |
+| **Projects & achievements** | Enterprise RAG and agents at 3M, hackathon wins, Bazaar-ai-saathi (featured in the Perplexity docs), and a "Built on AWS, in public" group of open-source AWS builds (TariffTrail, Crayon Cinema, Resilience Simulator, QuickSplit, AstroMuse, Dream Postcards, a Lambda weather ETL, and this site) |
 | **Journey** | Career told as a revision history, linked to the Rewind eras |
 | **Contact** | Email, LinkedIn, GitHub, YouTube/blog |
 
